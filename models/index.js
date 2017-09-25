@@ -1,5 +1,5 @@
 var Sequelize = require('sequelize');
-var db = new Sequelize('postgres://localhost:5432/wikistack');
+var db = new Sequelize('postgres://localhost:5432/wikistack', {logging: false});
 
 const Page = db.define('page', {
     title: {type: Sequelize.STRING, allowNull: false},
@@ -12,7 +12,7 @@ const Page = db.define('page', {
           return '/wiki/' + this.urlTitle;
       }
     },
-        hooks: { 
+        hooks: {
           beforeValidate: function generateUrlTitle (page) {
           if (page.title) {
             page.urlTitle = page.title.replace(/\s+/g, '_').replace(/\W/g, '');
