@@ -31,7 +31,8 @@ app.engine('html', nunjucks.render);
 // .catch(console.error);
 
 // // // this drops all tables then recreates them based on our JS definitions
-// models.db.sync({force: true})
+//models.User.sync({force: true})
+// vs. models.db.sync({force: true})???
 
 models.User.sync({})
 .then(function () {

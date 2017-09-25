@@ -5,6 +5,6 @@ var user = require('./user');
 var wiki = require('./wiki');
 
 router.use('/wiki', wiki);
-router.use('/user', user);
+router.use('/users', user);
 
 module.exports = router;
