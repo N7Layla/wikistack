@@ -6,8 +6,11 @@ app.use(express.static(path.join(__dirname, '/public')));
 var nunjucks = require('nunjucks');
 var models = require('./models');
 
+var router = require('./routes');
+
 app.use(bodyParser.urlencoded({extended: true})); // for HTML form submissions
 app.use(bodyParser.json()); // for AJAX requests
+app.use('/', router);
 
 // point nunjucks to the directory containing templates and turn off caching; configure returns an Environment 
 // instance, which we'll want to use to add Markdown support later.
